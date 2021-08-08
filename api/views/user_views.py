@@ -81,6 +81,7 @@ class SignOut(generics.DestroyAPIView):
 class ChangePassword(generics.UpdateAPIView):
     def partial_update(self, request):
         user = request.user
+        print('user =\n', user)
         # Pass data through serializer
         serializer = ChangePasswordSerializer(data=request.data['passwords'])
         if serializer.is_valid():
